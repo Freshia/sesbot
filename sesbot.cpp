@@ -1,5 +1,7 @@
+
 #include "sesbot.h"
 #include "Nextion.h"
+
 
 String courses [] = {"mecht","eee","civil","tie","marine","gegis","mech","abe","mining"};
 //NexText courses_text [] = {text_mecht,text_eee,text_civil,text_tie,text_marine,text_gegis,text_mech,text_abe,text_mining};
@@ -33,6 +35,11 @@ void initialize_homepage(){
         name_string += "text_";
         name_string+=homepage_contents[i];
         components_text[i] ->name = name_string;
+
+        int n = name_string.length();
+        const char char_array[n+1];
+        strcpy(char_array, name_string.c_str());
+        components_text[i]-> nexText= NexText(0, i+1, char_array);
     }
 }
 void initialize_courses_page(){
@@ -42,7 +49,3 @@ void initialize_courses_page(){
        // courses_text[i] = NexText(0, i+2, "bn_"+courses[i]);
     }
 }
-
-
-// NexPage homepage = NexPage(0, 0, "homepage");
-// v.nexText = NexText(1, 2, "text_mecht");
