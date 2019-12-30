@@ -1,11 +1,14 @@
-
 #include "sesbot.h"
+#include <string.h>
 #include "Nextion.h"
 
-//remember to document course codes
 
 String courses [] = {"mecht","eee","civil","tie","marine","gegis","mech","abe","mining"};
 String homepage_contents[] = {"settings","results","mail","vote","no_vote","no_vote1"};
+//value to be changed
+//remember to add cancel button for pages
+NexTouch *nex_listen_list[100];
+
 
 struct candidate{
     String name;
@@ -13,27 +16,28 @@ struct candidate{
     NexText nexText;
     int results;
 };
-struct homepage_components_text{
-    String name;
-    NexText nexText;
-};
-struct coursepage_components_text{
-    String name;
-    NexText nexText;
-};
-struct candidate_components_text{
-    String name;
-    NexText nexText;
-};
+// struct homepage_components_text{
+//     String name;
+//     NexText nexText;
+// };
+// struct coursepage_components_text{
+//     String name;
+//     NexText nexText;
+// };
+// struct candidate_components_text{
+//     String name;
+//     NexText nexText;
+// };
 
 void initialization(){
     struct candidate *v;
     v->name = "sackey";
+    
     String text_name = "_text";
    // v-> nexText = NexText(1, 2, text_name);
     //NexText text_mecht = NexText(1, 2, "text_mecht");
 }
-void initialize_homepage(){
+homepage_components_text* initialize_homepage(){
     NexPage homepage = NexPage(0, 0, "homepage");
     int array_length = sizeof(homepage_contents)/sizeof(homepage_contents[0]);
     homepage_components_text *components_text [array_length];
@@ -49,8 +53,9 @@ void initialize_homepage(){
 
         components_text[i]-> nexText= NexText(0, i+1, char_array);
     }
+    return *components_text;
 }
-void initialize_courses_page(){
+coursepage_components_text* initialize_courses_page(){
     NexPage courses_page = NexPage(1, 0, "courses");
     int array_length = sizeof(courses)/sizeof(courses[0]);
     coursepage_components_text *components_text [array_length];
@@ -66,9 +71,10 @@ void initialize_courses_page(){
 
         components_text[i]-> nexText= NexText(1, i+2, char_array);
     }
+    return *components_text;
 
 }
-void initialize_course(String candidates [],int page_number, String course_name){
+candidate_components_text* initialize_course(String candidates [],int page_number, String course_name){
     
     int n = course_name.length();
     const char name_char_array[n+1];
@@ -90,4 +96,6 @@ void initialize_course(String candidates [],int page_number, String course_name)
 
         components_text[i]-> nexText= NexText(page_number, i+1, char_array);
     }
+    return *components_text;
 }
+//yet to do password page and results page fuckery
