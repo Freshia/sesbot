@@ -16,26 +16,12 @@ struct candidate{
     NexText nexText;
     int results;
 };
-// struct homepage_components_text{
-//     String name;
-//     NexText nexText;
-// };
-// struct coursepage_components_text{
-//     String name;
-//     NexText nexText;
-// };
-// struct candidate_components_text{
-//     String name;
-//     NexText nexText;
-// };
 
 void initialization(){
     struct candidate *v;
     v->name = "sackey";
     
     String text_name = "_text";
-   // v-> nexText = NexText(1, 2, text_name);
-    //NexText text_mecht = NexText(1, 2, "text_mecht");
 }
 homepage_components_text* initialize_homepage(){
     NexPage homepage = NexPage(0, 0, "homepage");
