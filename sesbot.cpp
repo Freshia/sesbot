@@ -5,6 +5,7 @@
 
 String courses [] = {"mecht","eee","civil","tie","marine","gegis","mech","abe","mining"};
 String homepage_contents[] = {"settings","results","mail","vote","no_vote","no_vote1"};
+String password_page_contents [] = {"sigma","gamma","psi","phi","alpha","epsilon","theta","nought"};
 //remember to add cancel button for pages
 //array and pages for other positions eg secgen
 // include in docs that returned structs from initilization methods are to be added to nexTouch listener array
