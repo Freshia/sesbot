@@ -17,6 +17,7 @@ struct coursepage_components_text{
 struct candidate_components_text{
     String name;
     NexText nexText;
+    int results;
 };
 
 void initialization();

@@ -5,8 +5,9 @@
 
 String courses [] = {"mecht","eee","civil","tie","marine","gegis","mech","abe","mining"};
 String homepage_contents[] = {"settings","results","mail","vote","no_vote","no_vote1"};
-//value to be changed
 //remember to add cancel button for pages
+// include in docs that returned structs from initilization methods are to be added to nexTouch listener array
+
 NexTouch *nex_listen_list[100];
 
 
@@ -66,11 +67,12 @@ candidate_components_text* initialize_course(String candidates [],int page_numbe
     const char name_char_array[n+1];
     strcpy(name_char_array, course_name.c_str());
 
-    NexPage mechatronics_page = NexPage(page_number, 0, name_char_array);
+    NexPage course_page = NexPage(page_number, 0, name_char_array);
 
     int array_length = sizeof(candidates)/sizeof(candidates[0]);
     candidate_components_text *components_text [array_length];
      for(int  i = 0; i<=array_length;i++){
+         components_text[i] ->results = 0;
         String name_string;
         name_string += "text_";
         name_string+=candidates[i];
@@ -81,6 +83,7 @@ candidate_components_text* initialize_course(String candidates [],int page_numbe
         strcpy(char_array, name_string.c_str());
 
         components_text[i]-> nexText= NexText(page_number, i+1, char_array);
+        //attach pop here
     }
     return *components_text;
 }
