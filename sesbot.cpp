@@ -6,6 +6,7 @@
 String courses [] = {"mecht","eee","civil","tie","marine","gegis","mech","abe","mining"};
 String homepage_contents[] = {"settings","results","mail","vote","no_vote","no_vote1"};
 //remember to add cancel button for pages
+//array and pages for other positions eg secgen
 // include in docs that returned structs from initilization methods are to be added to nexTouch listener array
 
 NexTouch *nex_listen_list[100];
@@ -88,3 +89,8 @@ candidate_components_text* initialize_course(String candidates [],int page_numbe
     return *components_text;
 }
 //yet to do password page and results page fuckery
+int course_candidate_callback(void *ptr,int candidate_result,NexPage nextpage){
+        candidate_result = candidate_result+1;
+        nextpage.show();
+        return candidate_result;
+}
