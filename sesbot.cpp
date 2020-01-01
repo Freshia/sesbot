@@ -26,10 +26,10 @@ void initialization(){
     
     String text_name = "_text";
 }
-homepage_components_text* initialize_homepage(){
+genericpage_components_text* initialize_homepage(){
     NexPage homepage = NexPage(0, 0, "homepage");
     int array_length = sizeof(homepage_contents)/sizeof(homepage_contents[0]);
-    homepage_components_text *components_text [array_length];
+    genericpage_components_text *components_text [array_length];
     for(int  i = 0; i<=array_length;i++){
         String name_string;
         name_string += "text_";
@@ -89,7 +89,25 @@ candidate_components_text* initialize_course(String candidates [],int page_numbe
     }
     return *components_text;
 }
-//yet to do password page and results page fuckery
+password_page_components_text* initialize_password_page(){
+    NexPage password_page = NexPage(0, 0, "password_page");
+    int array_length = sizeof(password_page_contents)/sizeof(password_page_contents[0]);
+    password_page_components_text *components_text [array_length];
+    for(int  i = 0; i<=array_length;i++){
+        String name_string;
+        name_string += "bn_";
+        name_string+=homepage_contents[i];
+        components_text[i] ->name = name_string;
+
+        int n = name_string.length();
+        const char char_array[n+1];
+        strcpy(char_array, name_string.c_str());
+
+        components_text[i]-> nexButton= NexButton(0, i+1, char_array);
+    }
+    return *components_text;
+}
+//yet to do results page fuckery
 int course_candidate_callback(void *ptr,int candidate_result,NexPage nextpage){
         candidate_result = candidate_result+1;
         nextpage.show();
