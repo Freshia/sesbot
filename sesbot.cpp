@@ -85,7 +85,7 @@ candidate_components_text* initialize_course(String candidates [],int page_numbe
         strcpy(char_array, name_string.c_str());
 
         components_text[i]-> nexText= NexText(page_number, i+1, char_array);
-        //attach pop here
+        
     }
     return *components_text;
 }
@@ -96,7 +96,7 @@ password_page_components_text* initialize_password_page(){
     for(int  i = 0; i<=array_length;i++){
         String name_string;
         name_string += "bn_";
-        name_string+=homepage_contents[i];
+        name_string+=password_page_contents[i];
         components_text[i] ->name = name_string;
 
         int n = name_string.length();
