@@ -63,18 +63,18 @@ coursepage_components_text* initialize_courses_page(){
     return *components_text;
 
 }
-candidate_components_text* initialize_course(String candidates [],int page_number, String course_name){
+candidate_components_text* initialize_course(String candidates [],int page_number, String role_name){
     
-    int n = course_name.length();
+    int n =role_name.length();
     const char name_char_array[n+1];
-    strcpy(name_char_array, course_name.c_str());
+    strcpy(name_char_array, role_name.c_str());
 
-    NexPage course_page = NexPage(page_number, 0, name_char_array);
+    NexPage role_page = NexPage(page_number, 0, name_char_array);
 
     int array_length = sizeof(candidates)/sizeof(candidates[0]);
     candidate_components_text *components_text [array_length];
      for(int  i = 0; i<=array_length;i++){
-         components_text[i] ->results = 0;
+        components_text[i] ->results = 0;
         String name_string;
         name_string += "text_";
         name_string+=candidates[i];
