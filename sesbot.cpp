@@ -108,7 +108,7 @@ password_page_components_text* initialize_password_page(){
     return *components_text;
 }
 //yet to do results page fuckery
-int course_candidate_callback(void *ptr,int candidate_result,NexPage nextpage){
+int role_candidate_callback(void *ptr,int candidate_result,NexPage nextpage){
         candidate_result = candidate_result+1;
         nextpage.show();
         return candidate_result;
