@@ -1,4 +1,0 @@
-{
-    "board": "arduino:avr:megaADK",
-    "sketch": "test\\test.ino"
-}
