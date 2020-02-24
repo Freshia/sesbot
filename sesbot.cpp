@@ -63,7 +63,7 @@ coursepage_components_text* initialize_courses_page(){
     return *components_text;
 
 }
-candidate_components_text* initialize_course(String candidates [],int page_number, String role_name){
+candidate_components_text* initialize_role(String candidates [],int page_number, String role_name){
     
     int n =role_name.length();
     const char name_char_array[n+1];
@@ -107,7 +107,7 @@ password_page_components_text* initialize_password_page(){
     }
     return *components_text;
 }
-//yet to do results page fuckery
+
 int role_candidate_callback(void *ptr,int candidate_result,NexPage nextpage){
         candidate_result = candidate_result+1;
         nextpage.show();
